@@ -10,4 +10,8 @@
 
 @interface RTHViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *wordLabel;
+
+- (IBAction)nextWord:(UIButton *)sender;
+
 @end
