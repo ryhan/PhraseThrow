@@ -28,7 +28,7 @@
                                                        error:NULL];
         
         // Separate the file by newlines into an array of strings
-        NSArray *wordList = [words componentsSeparatedByString:@"\n"];
+        self.wordList = [words componentsSeparatedByString:@"\n"];
         
     }
     return self;
@@ -47,5 +47,15 @@
 }
 
 - (IBAction)nextWord:(UIButton *)sender {
+    
+    // Find a random index and make sure it's a valid index in our wordList array
+    NSUInteger index = arc4random() % self.wordList.count;
+    
+    // Grab the word from the wordList array and store it in a local variable
+    NSString *word = [[self.wordList objectAtIndex:index] uppercaseString];
+    
+    // Update the UILabel's text property with this new value
+    self.wordLabel.text = word;
+    
 }
 @end
